@@ -4,12 +4,4 @@
 EXAMPLE README 
 Update this! 
 
-This design is inspired by fireworks and flowers. I want it to be full of changes, so that every frame can have a fresh feeling.
-
-In terms of concrete performance, I draw different geometric figures, let them spread out, and overlay their number at the same time, through the time difference to make the whole dynamic background become enthusiastic.
-
-In terms of color, I made different shapes correspond to different colors, and changed the parameters so that they were different every time they appeared, so that there would be differences between different loops.
-
-In the initial design, I only added the circle. Through the color change of the circle and the superposition of the movement track, although it has a good effect, I think it is too monotonous.
-
-In the later stages, I added a lot of geometric shapes, which made the color and pattern more variable.
+For my concept I have decided to step in the direction of trippy looking loop animations. I want a fast paced and energetic looking animation that will be mesmorizing and seizure enducing at the same time. I am taking inspiration from starwars when they go into lightspeed because I like the quick flashing lines that speed towards you. I want to emulate going to lightspeed and then entering a time warp by having a transition between the flashing lines and a slower and warpy looking tube. 
