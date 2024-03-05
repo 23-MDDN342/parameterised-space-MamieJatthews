@@ -5,3 +5,6 @@ EXAMPLE README
 Update this! 
 
 For my concept I have decided to step in the direction of trippy looking loop animations. I want a fast paced and energetic looking animation that will be mesmorizing and seizure enducing at the same time. I am taking inspiration from starwars when they go into lightspeed because I like the quick flashing lines that speed towards you. I want to emulate going to lightspeed and then entering a time warp by having a transition between the flashing lines and a slower and warpy looking tube. 
+
+Week 2:
+Tuesday - I spent most of today just trying to understand the code from the example front scroll because my concept has a similar motion. I tried experimenting with values in the code to try and transform the lines as close as possible to a octasgon shape. In the end I decided to just use fresh code and design a hexagon using the beginShape(). I also translated the 0 point to the centre of the screen to make it easier for the shape to scale proportionaly. 
