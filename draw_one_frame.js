@@ -26,6 +26,38 @@ function draw_one_frame(cur_frac) {
 	vertex(width/16, -height/4);
 	endShape(CLOSE);
 
+	beginShape();
+	vertex(-width/32, -height/8);
+	vertex(-width/12, -height/16);
+	vertex(-width/12, height/16);
+	vertex(-width/32, height/8);
+	vertex(width/32, height/8);
+	vertex(width/12, height/16);
+	vertex(width/12, -height/16);
+	vertex(width/32, -height/8);
+	endShape(CLOSE);
+
+	beginShape();
+	vertex(-width/8, -height/2);
+	vertex(-width/3, -height/4);
+	vertex(-width/3, height/4);
+	vertex(-width/8, height/2);
+	vertex(width/8, height/2);
+	vertex(width/3, height/4);
+	vertex(width/3, -height/4);
+	vertex(width/8, -height/2);
+	endShape(CLOSE);
+
+	line(-width/32, -height/8, -width/2, -height/.5);
+	line(-width/12, -height/16, -width/2, -height/2.7);
+	line(-width/12, height/16, -width/2, height/2.7);
+	line(-width/32, height/8, -width/2, height/.5);
+	line(width/32, -height/8, width/2, -height/.5);
+	line(width/12, -height/16, width/2, -height/2.7);
+	line(width/12, height/16, width/2, height/2.7);
+	line(width/32, height/8, width/2, height/.5);
+
+
 	fill(200)
 	ellipse(0,0, width/ 100)
   
@@ -36,7 +68,7 @@ function draw_one_frame(cur_frac) {
   
 	strokeWeight(10);
 	let grid_points = [
-	  0.50 * height,
+	  0.5 * height,
 	  0.53 * height,
 	  0.60 * height,
 	  0.75 * height,
@@ -55,7 +87,7 @@ function draw_one_frame(cur_frac) {
 	stroke(0);
 	for(let i=0; i<grid_points.length-1; i++) {
 	  let cur_grid_line = map(cur_frac, 0, 1, grid_points[i], grid_points[i+1])
-	  line(width/2 - 100, cur_grid_line, width/2 + 100, cur_grid_line);
+	  line(0, cur_grid_line, width/2, cur_grid_line);
 	}
 
 
