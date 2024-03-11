@@ -2,7 +2,7 @@
 
 function draw_one_frame(cur_frac) {
 	noStroke();
-	fill(100, 100, 214); // weird
+	fill(0); // black background
 	rect(0, 0, width, height);
   
 	//let sun_size = canvasHeight/8;
