@@ -12,7 +12,7 @@ function draw_one_frame(cur_frac) {
 
 	rect(0.6*width, 0.6*height, 0.4*width, 0.4*height);
 
-	//rect(-width/6, -height/4, width/3, height/2);
+	//first octagon
 	strokeWeight(2);
 	stroke(200);
 	beginShape();
@@ -26,6 +26,7 @@ function draw_one_frame(cur_frac) {
 	vertex(width/16, -height/4);
 	endShape(CLOSE);
 
+	//second octagon
 	beginShape();
 	vertex(-width/32, -height/8);
 	vertex(-width/12, -height/16);
@@ -37,6 +38,7 @@ function draw_one_frame(cur_frac) {
 	vertex(width/32, -height/8);
 	endShape(CLOSE);
 
+	//third octagon
 	beginShape();
 	vertex(-width/8, -height/2);
 	vertex(-width/3, -height/4);
@@ -48,6 +50,7 @@ function draw_one_frame(cur_frac) {
 	vertex(width/8, -height/2);
 	endShape(CLOSE);
 
+	//lines that create perspective
 	line(-width/32, -height/8, -width/2, -height/.5);
 	line(-width/12, -height/16, -width/2, -height/2.7);
 	line(-width/12, height/16, -width/2, height/2.7);
