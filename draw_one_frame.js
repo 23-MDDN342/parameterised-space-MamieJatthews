@@ -112,10 +112,11 @@ function draw_one_frame(cur_frac) {
 	 
 	 push()
 	 strokeWeight(0.5)
-	 scale(cur_frac*10);
-	 drawOct(2);
-	 drawOct2(4);
-	 drawOct3();
+	 //scale(cur_frac*10);
+	 let scaleMap = map(cur_frac, 0, 1, 10, 1)
+	 drawOct(scaleMap);
+	 //drawOct2(4);
+	 //drawOct3();
 	 pop()
 
 	//sscale(cur_frac*0.5);
@@ -133,9 +134,9 @@ function draw_one_frame(cur_frac) {
 pop()
   }
 
-  function drawOct (sizeOct){
-	let scaleFactor = 10;
-
+  function drawOct (scaleFactor){
+	//let scaleFactor = 10;
+	strokeWeight(height/ 50)
 	//stroke(255, 255, 0)
 	beginShape();
 	vertex(-width/(scaleFactor*4), -height/(scaleFactor));
@@ -148,6 +149,11 @@ pop()
 	vertex(width/(scaleFactor*4), -height/(scaleFactor));
 	endShape(CLOSE);
   }
+
+
+
+
+
 
 	function drawOct2 (sizeOct){
 		let scaleFactor = 20;
