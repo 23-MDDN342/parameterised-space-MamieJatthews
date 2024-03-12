@@ -13,20 +13,9 @@ function draw_one_frame(cur_frac) {
 	rect(0.6*width, 0.6*height, 0.4*width, 0.4*height);
 
 	//first octagon
+	
 	strokeWeight(2);
 	stroke(200);
-	beginShape();
-	vertex(-width/16, -height/4);
-	vertex(-width/6, -height/8);
-	vertex(-width/6, height/8);
-	vertex(-width/16, height/4);
-	vertex(width/16, height/4);
-	vertex(width/6, height/8);
-	vertex(width/6, -height/8);
-	vertex(width/16, -height/4);
-	endShape(CLOSE);
-
-	//second octagon
 	beginShape();
 	vertex(-width/32, -height/8);
 	vertex(-width/12, -height/16);
@@ -37,20 +26,34 @@ function draw_one_frame(cur_frac) {
 	vertex(width/12, -height/16);
 	vertex(width/32, -height/8);
 	endShape(CLOSE);
+	
+
+	//second octagon
+	// beginShape();
+	// vertex(-width/16, -height/4);
+	// vertex(-width/6, -height/8);
+	// vertex(-width/6, height/8);
+	// vertex(-width/16, height/4);
+	// vertex(width/16, height/4);
+	// vertex(width/6, height/8);
+	// vertex(width/6, -height/8);
+	// vertex(width/16, -height/4);
+	// endShape(CLOSE);
+	
 
 	//third octagon
-	beginShape();
-	vertex(-width/8, -height/2);
-	vertex(-width/3, -height/4);
-	vertex(-width/3, height/4);
-	vertex(-width/8, height/2);
-	vertex(width/8, height/2);
-	vertex(width/3, height/4);
-	vertex(width/3, -height/4);
-	vertex(width/8, -height/2);
-	endShape(CLOSE);
+	// beginShape();
+	// vertex(-width/8, -height/2);
+	// vertex(-width/3, -height/4);
+	// vertex(-width/3, height/4);
+	// vertex(-width/8, height/2);
+	// vertex(width/8, height/2);
+	// vertex(width/3, height/4);
+	// vertex(width/3, -height/4);
+	// vertex(width/8, -height/2);
+	// endShape(CLOSE);
 
-	//lines that create perspective
+	//lines that create perspective 
 	line(-width/32, -height/8, -width/2, -height/.5);
 	line(-width/12, -height/16, -width/2, -height/2.7);
 	line(-width/12, height/16, -width/2, height/2.7);
@@ -59,6 +62,9 @@ function draw_one_frame(cur_frac) {
 	line(width/12, -height/16, width/2, -height/2.7);
 	line(width/12, height/16, width/2, height/2.7);
 	line(width/32, height/8, width/2, height/.5);
+
+	line(0, height/2, 0, -height/2);
+	line(width, 0, -width, 0)
 
 
 	fill(200)
@@ -71,11 +77,17 @@ function draw_one_frame(cur_frac) {
   
 	strokeWeight(10);
 	let grid_points = [
-	  0.5 * height,
-	  0.53 * height,
-	  0.60 * height,
-	  0.75 * height,
-	  1.00 * height
+	  0.0 * height,
+	  0.02 * height,
+	  0.04 * height,
+	  0.08 * height,
+	  0.16 * height,
+	  0.32 * height,
+	  0.64 * height,
+	  0.128 * height,
+	  0.256 * height,
+	  0.512 * height
+	  
 	]
   
 	if (debugView) {
@@ -86,12 +98,34 @@ function draw_one_frame(cur_frac) {
 	  }
 	}
   
-	strokeWeight(2);
-	stroke(0);
+	strokeWeight(1);
+	stroke(255); 
+	noFill();
 	for(let i=0; i<grid_points.length-1; i++) {
 	  let cur_grid_line = map(cur_frac, 0, 1, grid_points[i], grid_points[i+1])
-	  line(0, cur_grid_line, width/2, cur_grid_line);
+	// scale(0.2)
+	 //scale(cur_frac*2);
+	 line(-width, cur_grid_line, width, cur_grid_line);
+	 line(-width*2, -cur_grid_line, width*2, -cur_grid_line);
+	 line(cur_grid_line*2, -height, cur_grid_line*2, height);
+	 line(-cur_grid_line*2, -height, -cur_grid_line*2, height);
+	 
+	 push()
+	 strokeWeight(0.5)
+	 scale(cur_frac*10);
+	 drawOct(2);
+	 drawOct2(4);
+	 drawOct3();
+	 pop()
+
+	//sscale(cur_frac*0.5);
+
+	
+	//ellipse(cur_frac*1000, cur_frac*1000, 100);
+	
 	}
+	
+ 
 
 
 
@@ -99,6 +133,53 @@ function draw_one_frame(cur_frac) {
 pop()
   }
 
+  function drawOct (sizeOct){
+	let scaleFactor = 10;
+
+	//stroke(255, 255, 0)
+	beginShape();
+	vertex(-width/(scaleFactor*4), -height/(scaleFactor));
+	vertex(-width/(scaleFactor*1.5), -height/(scaleFactor*2));
+	vertex(-width/(scaleFactor*1.5), height/(scaleFactor*2));
+	vertex(-width/(scaleFactor*4), height/(scaleFactor));
+	vertex(width/(scaleFactor*4), height/(scaleFactor));
+	vertex(width/(scaleFactor*1.5), height/(scaleFactor*2));
+	vertex(width/(scaleFactor*1.5), -height/(scaleFactor*2));
+	vertex(width/(scaleFactor*4), -height/(scaleFactor));
+	endShape(CLOSE);
+  }
+
+	function drawOct2 (sizeOct){
+		let scaleFactor = 20;
+		
+		//stroke(255, 150, 0)
+		beginShape();
+		vertex(-width/(scaleFactor*4), -height/(scaleFactor));
+		vertex(-width/(scaleFactor*1.5), -height/(scaleFactor*2));
+		vertex(-width/(scaleFactor*1.5), height/(scaleFactor*2));
+		vertex(-width/(scaleFactor*4), height/(scaleFactor));
+		vertex(width/(scaleFactor*4), height/(scaleFactor));
+		vertex(width/(scaleFactor*1.5), height/(scaleFactor*2));
+		vertex(width/(scaleFactor*1.5), -height/(scaleFactor*2));
+		vertex(width/(scaleFactor*4), -height/(scaleFactor));
+		endShape(CLOSE);
+  }
+  	
+ 	function drawOct3 (sizeOct){
+	let scaleFactor = 40;
+	
+	//stroke(255, 0, 0)
+	beginShape();
+	vertex(-width/(scaleFactor*4), -height/(scaleFactor));
+	vertex(-width/(scaleFactor*1.5), -height/(scaleFactor*2));
+	vertex(-width/(scaleFactor*1.5), height/(scaleFactor*2));
+	vertex(-width/(scaleFactor*4), height/(scaleFactor));
+	vertex(width/(scaleFactor*4), height/(scaleFactor));
+	vertex(width/(scaleFactor*1.5), height/(scaleFactor*2));
+	vertex(width/(scaleFactor*1.5), -height/(scaleFactor*2));
+	vertex(width/(scaleFactor*4), -height/(scaleFactor));
+	endShape(CLOSE);
+  }
 
 // var x = 300;
 // var y = 300;
