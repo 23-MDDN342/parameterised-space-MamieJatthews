@@ -115,9 +115,10 @@ function draw_one_frame(cur_frac) {
 	 //scale(cur_frac*10);
 	 let scaleMap = map(cur_frac, 0, 1, 10, 5);
 	 let scaleMap2 = map(cur_frac, 0, 1, 20, 10);
-	 //let scaleMap3 = map(cur_frac, 0, 1, 40, 30);
+	//  let scaleMap3 = map(cur_frac, 0, 1, 40, 30);
 	 let scaleMap4 = map(cur_frac, 0, 1, 30, 20);
 	 let scaleMap5 = map(cur_frac, 0, 1, 5, 0.5);
+	 
 	 drawOct(scaleMap);
 	 drawOct(scaleMap2);
 	 //drawOct(scaleMap3);
@@ -126,6 +127,20 @@ function draw_one_frame(cur_frac) {
 	 drawOct(30)
 	 //drawOct2(4);
 	 //drawOct3();
+
+	 let scaleMap6 = map(cur_frac, 0, 1, 1, 30);
+	 let scaleMap7 = map(cur_frac, 0, 1, 1, 10);
+	 let scaleMap8 = map(cur_frac, 0, 1, 30, 1);
+	//  let scaleMap8 = map(cur_frac, 0, 1, 20, 30);
+	//  let scaleMap9 = map(cur_frac, 0, 1, 0.5, 5);
+	 
+	//  drawOct(scaleMap6);
+	//  drawOct(scaleMap7);
+	//  drawOct(scaleMap8);
+	//  drawOct(scaleMap9);
+
+	drawCirc(scaleMap8);
+
 	 pop()
 
 	//sscale(cur_frac*0.5);
@@ -159,42 +174,48 @@ pop()
 	endShape(CLOSE);
   }
 
+  function drawCirc (scaleFactor){
+	//let scaleFactor = 10;
+	strokeWeight(height/ 500)
+	stroke(200)
+	ellipse(0, 0, scaleFactor*30);
+  }
 
 
 
 
 
-	function drawOct2 (sizeOct){
-		let scaleFactor = 20;
+// 	function drawOct2 (sizeOct){
+// 		let scaleFactor = 20;
 		
-		//stroke(255, 150, 0)
-		beginShape();
-		vertex(-width/(scaleFactor*4), -height/(scaleFactor));
-		vertex(-width/(scaleFactor*1.5), -height/(scaleFactor*2));
-		vertex(-width/(scaleFactor*1.5), height/(scaleFactor*2));
-		vertex(-width/(scaleFactor*4), height/(scaleFactor));
-		vertex(width/(scaleFactor*4), height/(scaleFactor));
-		vertex(width/(scaleFactor*1.5), height/(scaleFactor*2));
-		vertex(width/(scaleFactor*1.5), -height/(scaleFactor*2));
-		vertex(width/(scaleFactor*4), -height/(scaleFactor));
-		endShape(CLOSE);
-  }
+// 		//stroke(255, 150, 0)
+// 		beginShape();
+// 		vertex(-width/(scaleFactor*4), -height/(scaleFactor));
+// 		vertex(-width/(scaleFactor*1.5), -height/(scaleFactor*2));
+// 		vertex(-width/(scaleFactor*1.5), height/(scaleFactor*2));
+// 		vertex(-width/(scaleFactor*4), height/(scaleFactor));
+// 		vertex(width/(scaleFactor*4), height/(scaleFactor));
+// 		vertex(width/(scaleFactor*1.5), height/(scaleFactor*2));
+// 		vertex(width/(scaleFactor*1.5), -height/(scaleFactor*2));
+// 		vertex(width/(scaleFactor*4), -height/(scaleFactor));
+// 		endShape(CLOSE);
+//   }
   	
- 	function drawOct3 (sizeOct){
-	let scaleFactor = 40;
+//  	function drawOct3 (sizeOct){
+// 	let scaleFactor = 40;
 	
-	//stroke(255, 0, 0)
-	beginShape();
-	vertex(-width/(scaleFactor*4), -height/(scaleFactor));
-	vertex(-width/(scaleFactor*1.5), -height/(scaleFactor*2));
-	vertex(-width/(scaleFactor*1.5), height/(scaleFactor*2));
-	vertex(-width/(scaleFactor*4), height/(scaleFactor));
-	vertex(width/(scaleFactor*4), height/(scaleFactor));
-	vertex(width/(scaleFactor*1.5), height/(scaleFactor*2));
-	vertex(width/(scaleFactor*1.5), -height/(scaleFactor*2));
-	vertex(width/(scaleFactor*4), -height/(scaleFactor));
-	endShape(CLOSE);
-  }
+// 	//stroke(255, 0, 0)
+// 	beginShape();
+// 	vertex(-width/(scaleFactor*4), -height/(scaleFactor));
+// 	vertex(-width/(scaleFactor*1.5), -height/(scaleFactor*2));
+// 	vertex(-width/(scaleFactor*1.5), height/(scaleFactor*2));
+// 	vertex(-width/(scaleFactor*4), height/(scaleFactor));
+// 	vertex(width/(scaleFactor*4), height/(scaleFactor));
+// 	vertex(width/(scaleFactor*1.5), height/(scaleFactor*2));
+// 	vertex(width/(scaleFactor*1.5), -height/(scaleFactor*2));
+// 	vertex(width/(scaleFactor*4), -height/(scaleFactor));
+// 	endShape(CLOSE);
+//   }
 
 // var x = 300;
 // var y = 300;
