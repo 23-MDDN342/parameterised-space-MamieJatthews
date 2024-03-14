@@ -16,16 +16,16 @@ function draw_one_frame(cur_frac) {
 	
 	strokeWeight(2);
 	stroke(200);
-	beginShape();
-	vertex(-width/32, -height/8);
-	vertex(-width/12, -height/16);
-	vertex(-width/12, height/16);
-	vertex(-width/32, height/8);
-	vertex(width/32, height/8);
-	vertex(width/12, height/16);
-	vertex(width/12, -height/16);
-	vertex(width/32, -height/8);
-	endShape(CLOSE);
+	// beginShape();
+	// vertex(-width/32, -height/8);
+	// vertex(-width/12, -height/16);
+	// vertex(-width/12, height/16);
+	// vertex(-width/32, height/8);
+	// vertex(width/32, height/8);
+	// vertex(width/12, height/16);
+	// vertex(width/12, -height/16);
+	// vertex(width/32, -height/8);
+	// endShape(CLOSE);
 	
 
 	//second octagon
@@ -54,17 +54,17 @@ function draw_one_frame(cur_frac) {
 	// endShape(CLOSE);
 
 	//lines that create perspective 
-	line(-width/32, -height/8, -width/2, -height/.5);
-	line(-width/12, -height/16, -width/2, -height/2.7);
-	line(-width/12, height/16, -width/2, height/2.7);
-	line(-width/32, height/8, -width/2, height/.5);
-	line(width/32, -height/8, width/2, -height/.5);
-	line(width/12, -height/16, width/2, -height/2.7);
-	line(width/12, height/16, width/2, height/2.7);
-	line(width/32, height/8, width/2, height/.5);
+	line(-width/128, -height/32, -width/2, -height/.5);
+	line(-width/48, -height/64, -width/2, -height/2.7);
+	line(-width/48, height/64, -width/2, height/2.7);
+	line(-width/128, height/32, -width/2, height/.5);
+	line(width/128, -height/32, width/2, -height/.5);
+	line(width/48, -height/64, width/2, -height/2.7);
+	line(width/48, height/64, width/2, height/2.7);
+	line(width/128, height/32, width/2, height/.5);
 
-	line(0, height/2, 0, -height/2);
-	line(width, 0, -width, 0)
+	//line(0, height/2, 0, -height/2);
+	//line(width, 0, -width, 0)
 
 
 	fill(200)
@@ -99,7 +99,7 @@ function draw_one_frame(cur_frac) {
 	}
   
 	strokeWeight(1);
-	stroke(255); 
+	stroke(100); 
 	noFill();
 	for(let i=0; i<grid_points.length-1; i++) {
 	  let cur_grid_line = map(cur_frac, 0, 1, grid_points[i], grid_points[i+1])
@@ -113,8 +113,17 @@ function draw_one_frame(cur_frac) {
 	 push()
 	 strokeWeight(0.5)
 	 //scale(cur_frac*10);
-	 let scaleMap = map(cur_frac, 0, 1, 10, 1)
+	 let scaleMap = map(cur_frac, 0, 1, 10, 5);
+	 let scaleMap2 = map(cur_frac, 0, 1, 20, 10);
+	 //let scaleMap3 = map(cur_frac, 0, 1, 40, 30);
+	 let scaleMap4 = map(cur_frac, 0, 1, 30, 20);
+	 let scaleMap5 = map(cur_frac, 0, 1, 5, 0.5);
 	 drawOct(scaleMap);
+	 drawOct(scaleMap2);
+	 //drawOct(scaleMap3);
+	 drawOct(scaleMap4);
+	 drawOct(scaleMap5);
+	 drawOct(30)
 	 //drawOct2(4);
 	 //drawOct3();
 	 pop()
@@ -136,8 +145,8 @@ pop()
 
   function drawOct (scaleFactor){
 	//let scaleFactor = 10;
-	strokeWeight(height/ 50)
-	//stroke(255, 255, 0)
+	strokeWeight(height/ 500)
+	stroke(255)
 	beginShape();
 	vertex(-width/(scaleFactor*4), -height/(scaleFactor));
 	vertex(-width/(scaleFactor*1.5), -height/(scaleFactor*2));
