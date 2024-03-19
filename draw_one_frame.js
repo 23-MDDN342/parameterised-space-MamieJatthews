@@ -99,7 +99,7 @@ function draw_one_frame(cur_frac) {
 	}
   
 	strokeWeight(1);
-	stroke(100); 
+	stroke(0, 200, 0); 
 	noFill();
 	for(let i=0; i<grid_points.length-1; i++) {
 	  let cur_grid_line = map(cur_frac, 0, 1, grid_points[i], grid_points[i+1])
@@ -109,6 +109,13 @@ function draw_one_frame(cur_frac) {
 	 line(-width*2, -cur_grid_line, width*2, -cur_grid_line);
 	 line(cur_grid_line*2, -height, cur_grid_line*2, height);
 	 line(-cur_grid_line*2, -height, -cur_grid_line*2, height);
+
+	 push()
+	 stroke(255, 0, 0)
+	 strokeWeight(height/600)
+	 scale(cur_grid_line);
+	 ellipse(0, 0, 200);
+	 pop();
 	 
 	 push()
 	 strokeWeight(0.5)
@@ -130,7 +137,7 @@ function draw_one_frame(cur_frac) {
 
 	 let scaleMap6 = map(cur_frac, 0, 1, 1, 30);
 	 let scaleMap7 = map(cur_frac, 0, 1, 1, 10);
-	 let scaleMap8 = map(cur_frac, 0, 1, 30, 1);
+	 let scaleMap8 = map(cur_frac, 0, 1, height/15, 1);
 	//  let scaleMap8 = map(cur_frac, 0, 1, 20, 30);
 	//  let scaleMap9 = map(cur_frac, 0, 1, 0.5, 5);
 	 
@@ -176,8 +183,8 @@ pop()
 
   function drawCirc (scaleFactor){
 	//let scaleFactor = 10;
-	strokeWeight(height/ 500)
-	stroke(200)
+	strokeWeight(height/ 200)
+	stroke(255, 0, 0)
 	ellipse(0, 0, scaleFactor*30);
   }
 

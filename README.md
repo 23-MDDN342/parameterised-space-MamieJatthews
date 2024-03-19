@@ -15,3 +15,6 @@ Tuesday - On tuesday I experimented with getting the octagon to move. Using Curf
 Thursday - I successfully made a looping zoom with the octagon. I don't really know what I did but it managed to work and it looks awesome. 
 
 Added a circle which using the same function as the octagon but is instead reversed so the scale goes from large to small. Trying to continue to make the scene look trippy 
+
+Week 4:
+Tuesday - Added a circle which used scale multiplied by Cur_Frac to create a zooming circle. Along side the circle I previously added which reversly zooms, They both create an illusion that it is one circle which bounces in and out. Messed around with colours and ended up liking it when it looked techy using a black and green background and red circles. 
