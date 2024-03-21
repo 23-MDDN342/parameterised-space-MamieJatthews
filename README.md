@@ -1,8 +1,16 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/DlFCTo_q)
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=14047042&assignment_repo_type=AssignmentRepo)
 ### 2024 MDDN342 Project 1: Parameterised Space
-EXAMPLE README 
-Update this! 
+
+TRIPPY RADAR:
+Code By Jamie Matthews
+
+For this project, I was tasked to create a 1 second looping animation that could be used as a zoom background. Using a base code, I experimented with for loops, functions and ensured the whole project was parameterized to be able to be used at several scales. I was inspired by a number of trippy gifs I found on the internet and wanted to create something that was visually confusing and appealing at the same time. I also took inspiration from Star Wars and going into lightspeed and wanted to include some type of effect that felt like the screen was warping forward. Throughout the course of the project I experimented with different visual styles including colour, motion and effects. It wasn't until the end of the project that I decided on a tech theme, But I think it showed the best contrast and was appealing to look at. For the motion, I originally was exerimenting with more jumpy and quick movement. While I liked the look of this, it didn't quite fit the brief of a zoom background as it would be too distracting and it also didn't perfectly loop without jumping back to position. I ended up going with a more calming background motion with trippy visuals, and instead incorporated a jumpy motion as a secondary, more subtle element. 
+
+
+
+
+//weekly log 
 
 For my concept I have decided to step in the direction of trippy looking loop animations. I want a fast paced and energetic looking animation that will be mesmorizing and seizure enducing at the same time. I am taking inspiration from starwars when they go into lightspeed because I like the quick flashing lines that speed towards you. I want to emulate going to lightspeed and then entering a time warp by having a transition between the flashing lines and a slower and warpy looking tube. 
 
