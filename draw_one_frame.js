@@ -1,49 +1,147 @@
-var x = 300;
-var y = 300;
-var a = 100;
-var b = 100;
-// this is the fireworks example
-function draw_one_frame() {
-	//background(255);
-	x += 2;
-	y += 2;
-	a -= 2;
-	b -= 2;
+
+
+function draw_one_frame(cur_frac) {
+	noStroke();
+	fill(0); // black background
+	rect(0, 0, width, height);
+  
+	push()
+	translate(width/2, height/2)//set origin point (0, 0) to middle of screen 
+	noFill();
+
+	rect(0.6*width, 0.6*height, 0.4*width, 0.4*height);
+
+	strokeWeight(2);
+	stroke(200);
+
+
+	//lines that create perspective 
+	line(-width/128, -height/32, -width/2, -height/.5);
+	line(-width/48, -height/64, -width/2, -height/2.7);
+	line(-width/48, height/64, -width/2, height/2.7);
+	line(-width/128, height/32, -width/2, height/.5);
+	line(width/128, -height/32, width/2, -height/.5);
+	line(width/48, -height/64, width/2, -height/2.7);
+	line(width/48, height/64, width/2, height/2.7);
+	line(width/128, height/32, width/2, height/.5);
+	
+	//x and y lines 
+	// line(0, height/2, 0, -height/2);
+	// line(width, 0, -width, 0)
+
+	//centre cirlce
+	fill(200)
+	ellipse(0,0, width/ 200)
+
+	//Determine reference grid points for background lines
+	strokeWeight(10);
+	let grid_points = [
+	  0.0 * height,
+	  0.02 * height,
+	  0.04 * height,
+	  0.08 * height,
+	  0.16 * height,
+	  0.32 * height,
+	  0.64 * height,
+	  0.128 * height,
+	  0.256 * height,
+	  0.512 * height
+	  
+	]
+	
+	//debug gridpoints lines 
+	if (debugView) {
+	  strokeWeight(1);
+	  stroke(255, 0, 0);
+	  for(let i=0; i<grid_points.length; i++) {
+		line(0, grid_points[i], width, grid_points[i]);
+	  }
+	}
+	
+	//draw background lines 
 	strokeWeight(1);
-	translate(width / 2, height / 2);
-	for (var i = 0; i < 15; i++) {
-		for (var k = 0; k < 20; k++) {
-			stroke(255, 255, 255);
-			rotate(PI / 12.0);
-			fill(255, 255 - i * 10, 255 - k * 10);
-			line(a % 100, b % 100, x % 300, y % 300);
-			ellipse((x + i * 20) % width, (y + k * 20) % height, i + 4, i + 4);
-			drawtriangle((a - i * 20) % width, (b - k * 20) % height, k / 8);
-			rect(x % width, y % height, k + 10, k + 10);
-			fill(0, i * 10, 255 - k * 10);
-			ellipse((x - i * 20) % width, (y - k * 20) % height, i + 3, i + 3);
-			rotate(PI / 24.0);
-			fill(255 - (i + k) * 5, (i + k) * 7, i * 20);
-			drawtriangle((a + i * 20) % width, (b + k * 20) % height, k / 8);
-			rect(a % width, b % height, k + 5, k + 5);
-			drawflower(k, x);
-		}
+	stroke(0, 200, 0); //neon green 
+	noFill();
+	for(let i=0; i<grid_points.length-1; i++) {
+	  let cur_grid_line = map(cur_frac, 0, 1, grid_points[i], grid_points[i+1])
+	 //scale(cur_frac*2);
+	 line(-width, cur_grid_line, width, cur_grid_line);
+	 line(-width*2, -cur_grid_line, width*2, -cur_grid_line);
+	 line(cur_grid_line*2, -height, cur_grid_line*2, height);
+	 line(-cur_grid_line*2, -height, -cur_grid_line*2, height);
+
+	 //circle which zoom small to large
+	 push()
+	 stroke(255, 0, 0)
+	 strokeWeight(height/600)
+	 scale(cur_grid_line);
+	 ellipse(0, 0, 200);
+	 pop();
+	 
+	 //Draw octagon zoom sequence
+	 push()
+	 strokeWeight(0.5)
+	 //scale(cur_frac*10);
+	 let scaleMap = map(cur_frac, 0, 1, 10, 5);
+	 let scaleMap2 = map(cur_frac, 0, 1, 20, 10);
+	 let scaleMap3 = map(cur_frac, 0, 1, 40, 30);
+	 let scaleMap4 = map(cur_frac, 0, 1, 30, 20);
+	 let scaleMap5 = map(cur_frac, 0, 1, 5, 0.5);
+	 
+	 drawOct(scaleMap);
+	 drawOct(scaleMap2);
+	 drawOct(scaleMap3);
+	 drawOct(scaleMap4);
+	 drawOct(scaleMap5);
+	 drawOct(30);
+	 drawOct(4);
+
+	//Octagons which zoom large to small
+	//  let scaleMap6 = map(cur_frac, 0, 1, 1, 30);
+	//  let scaleMap7 = map(cur_frac, 0, 1, 1, 10);
+	 let scaleMap8 = map(cur_frac, 0, 1, height/15, 1);
+	//  let scaleMap9 = map(cur_frac, 0, 1, 0.5, 5);
+	 
+	//  drawOct(scaleMap6);
+	//  drawOct(scaleMap7);
+	//  drawOct(scaleMap8);
+	//  drawOct(scaleMap9);
+
+	drawCirc(scaleMap8);
+
+	 pop()
 	}
+	
+ 
 
-}
 
-function drawtriangle(x, y, r) {
-	triangle(x, y, x + 7 * r, y - 13.75 * r, x + 14 * r, y);
-}
 
-function drawflower(i, k) {
-	if (i % 2 == 1) {
-		fill(255, (k * 0.4) % 255, 30);
-		stroke(k % 255, 255, 0);
-		arc(0, 0, 150 + i + 150 * sin(k * PI / 24), 150, 0, PI / 40);
-	} else {
-		fill(k % 255, 0, 255);
-		stroke(0, (k * 0.4) % 255, 255);
-		arc(0, 0, (100 + 100 * cos(k * PI / 24)) % 255, 50, 0, PI / 20);
-	}
-}
+
+pop()
+  }
+
+  //Draw function for Octagon
+  function drawOct (scaleFactor){
+	strokeWeight(height/ 500)
+	stroke(255)
+	beginShape();
+	vertex(-width/(scaleFactor*4), -height/(scaleFactor));
+	vertex(-width/(scaleFactor*1.5), -height/(scaleFactor*2));
+	vertex(-width/(scaleFactor*1.5), height/(scaleFactor*2));
+	vertex(-width/(scaleFactor*4), height/(scaleFactor));
+	vertex(width/(scaleFactor*4), height/(scaleFactor));
+	vertex(width/(scaleFactor*1.5), height/(scaleFactor*2));
+	vertex(width/(scaleFactor*1.5), -height/(scaleFactor*2));
+	vertex(width/(scaleFactor*4), -height/(scaleFactor));
+	endShape(CLOSE);
+  }
+
+  //Draw Function for circle 
+  function drawCirc (scaleFactor){
+	strokeWeight(height/ 200)
+	stroke(255, 0, 0)
+	ellipse(0, 0, scaleFactor*30);
+  }
+
+
+

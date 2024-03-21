@@ -37,6 +37,6 @@ function draw_one_frame(cur_frac) {
   stroke(0);
   for(let i=0; i<grid_points.length-1; i++) {
     let cur_grid_line = map(cur_frac, 0, 1, grid_points[i], grid_points[i+1])
-    line(0, cur_grid_line, width, cur_grid_line);
+    line(width/2 - 100, cur_grid_line, width/2 + 100, cur_grid_line);
   }
 }
